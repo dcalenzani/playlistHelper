@@ -14,14 +14,16 @@ input_folder = ''
 output_folder = ''
 
 # User Input
-input_playlist = input('Enter the route of the playlist with the files for copying: ')
-output_folder = input('Enter the route of the folder where you want to put the files: ')
+input_playlist = input('Copy the path of your playlist: ')
+output_folder = input('Copy the path to where you want your files: ')
 mp3_or_not = input('Do you want to convert the files to mp3? Y/N:')
 
 while mp3_or_not != 'Y' and mp3_or_not != 'N':
     mp3_or_not = input('Please enter Y or N')
     continue
+
 # Program
+
 # Open the playlist and create a log of the files to copy
 fhand = open(input_playlist, 'r')
 for line in fhand:
@@ -46,17 +48,3 @@ for item in list:
         filename = os.path.splitext(os.path.basename(item))[0]
         mp3_file = os.path.join(output_folder, f'{filename}.mp3')
         os.system(f'ffmpeg -hide_banner -loglevel error -i "{item}" -codec:a libmp3lame -qscale:a 2 "{mp3_file}"')
-
-
-
-'''
-os.system(f'ffmpeg -i "{file}" -codec:a libmp3lame -qscale:a 2 "{mp3_file}"')
-mp3_output_folder = os.path.join(output_folder, 'mp3')
-os.makedirs(mp3_output_folder, exist_ok=True)
-
-audio_files = glob.glob(os.path.join(output_folder, '*'))
-for file in audio_files:
-    filename = os.path.splitext(os.path.basename(file))[0]
-    mp3_file = os.path.join(mp3_output_folder, f'{filename}.mp3')
-    os.system(f'ffmpeg -i "{file}" -codec:a libmp3lame -qscale:a 2 "{mp3_file}"')
-'''
