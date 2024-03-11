@@ -14,7 +14,7 @@ Playlist Manager works 2 ways, by a very simple CLI and also argument input on t
 
 For using the CLI you only got to run the main.py and you'll be prompted for the paths, the program will finish by its own. To use the arguments paste the paths using the following syntax:
 
-> python numark_converter.py /path/to/your/playlist /path/to/output/folder [Y/N]
+`python numark_converter.py /path/to/your/playlist /path/to/output/folder [Y/N]`
 
 ## Changelog
 
